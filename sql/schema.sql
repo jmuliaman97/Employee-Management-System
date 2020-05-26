@@ -6,14 +6,13 @@ USE employees_db;
 
 CREATE TABLE department (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  name VARCHAR(30) NOT NULL,
-  PRIMARY KEY (id)
+  name VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE role (
+CREATE TABLE roles (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   title VARCHAR(30) NOT NULL,
-  salary DECIMAL(7,2) NOT NULL,
+  salary DECIMAL NOT NULL,
   department_id INT NOT NULL,
   FOREIGN KEY (department_id) REFERENCES department(id)
 );
@@ -24,7 +23,7 @@ CREATE TABLE employee (
   last_name VARCHAR(30) NOT NULL,
   role_id INT NOT NULL,
   manager_id INT,
-  FOREIGN KEY (role_id) REFERENCES role(id),
+  FOREIGN KEY (role_id) REFERENCES roles(id),
   FOREIGN KEY (manager_id) REFERENCES employee(id)
 );
 
