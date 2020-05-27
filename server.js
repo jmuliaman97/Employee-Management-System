@@ -1,7 +1,6 @@
 const prompt = require('inquirer').createPromptModule()
 const db = require('./db')
 
-db.connect(() => {
   // View departments, roles, employees
 
   // View all department
@@ -33,7 +32,7 @@ db.connect(() => {
 
   // Add departments, roles, employees
 
-  // add new department
+  // Add new department
   function addDepartment() {
     prompt([
       {
@@ -51,7 +50,7 @@ db.connect(() => {
       .catch(err => console.log(err))
   }
 
-  // add new role
+  // Add new role
   function addRole() {
     prompt([
       {
@@ -79,7 +78,7 @@ db.connect(() => {
       .catch(err => console.log(err))
   }
 
-  // add new employee
+  // Add new employee
   function addEmployee() {
     prompt([
       {
@@ -148,6 +147,7 @@ db.connect(() => {
     })
   }
 
+  // Function to start the questions
   function init() {
     prompt([
       {
@@ -197,5 +197,3 @@ db.connect(() => {
       .catch(err => console.log(err))
   }
   init()
-
-})
